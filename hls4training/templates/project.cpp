@@ -1,0 +1,17 @@
+#include "project.h"
+
+void project (
+
+// WRITE IO LIST
+
+){
+
+// WRITE INTERNAL VARIABLES
+
+// WRITE INFERENCE LAYERS                   
+
+// WRITE ERROR GRADIENT LAYER
+
+// WRITE BACKPROPAGATION LAYERS
+
+}
