@@ -8,6 +8,8 @@ namespace nnet{
                         data_T data_out [CONFIG_T::n_neuron]) {
 
             for (int i = 0; i < CONFIG_T::n_neuron; i++){
+            #pragma HLS UNROLL
+
 
                 if (data_in[i] > 0) data_out[i] = 1;
 

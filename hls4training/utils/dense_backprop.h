@@ -16,6 +16,8 @@ namespace nnet{
             // ----- bias gradient -----//
 
             for (int i = 0; i < CONFIG_T::n_out; i++){
+            #pragma HLS UNROLL
+
             // bias gradient
 
                 bias_grad_out[i] = pre_relu_grad[i] * act_grad_in[i];
@@ -28,8 +30,12 @@ namespace nnet{
             // ----- weight gradient ----- //
 
             for (int i = 0; i < CONFIG_T::n_out; i++){
+            #pragma HLS UNROLL
+
 
                 for (int j = 0; j < CONFIG_T::n_in; j++){
+                #pragma HLS UNROLL
+
 
                     weight_grad_out[i][j] = bias_grad_out[i] * prev_act_in[j];
 
@@ -42,14 +48,20 @@ namespace nnet{
             // ----- activation gradient ----- //
             
             for (int i = 0; i < CONFIG_T::n_in; i++){
+            #pragma HLS UNROLL
+
 
                 act_grad_out[i] = 0;
 
             }
 
             for (int i = 0; i < CONFIG_T::n_out; i++){
+            #pragma HLS UNROLL
+
 
                 for (int j = 0; j < CONFIG_T::n_in; j++){
+                #pragma HLS UNROLL
+
 
                     act_grad_out[j] += weight_in[i][j] * bias_grad_out[i];
 

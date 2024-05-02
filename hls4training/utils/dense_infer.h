@@ -12,6 +12,8 @@ namespace nnet {
             // initialize output values with bias
 
             for (int i = 0; i < CONFIG_T::n_out; i++){
+            #pragma HLS UNROLL
+
 
                 data_out[i] = bias[i];
 
@@ -20,8 +22,12 @@ namespace nnet {
             // matrix multiplication
 
             for (int i = 0; i < CONFIG_T::n_in; i++){
+            #pragma HLS UNROLL
+
 
                 for (int j = 0; j < CONFIG_T::n_out; j++){
+                #pragma HLS UNROLL
+
 
                     data_out[j] += data_in[i] * weight[j][i];
 

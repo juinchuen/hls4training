@@ -1,8 +1,4 @@
-#include "utils/dense_infer.h"
-#include "utils/relu.h"
-#include "utils/relu_grad.h"
-#include "utils/ms_grad.h"
-#include "utils/dense_backprop.h"
+// WRITE INCLUDE DIRECTIVES
 
 // WRITE DATA TYPE DEFINITIONS
 
@@ -13,3 +9,9 @@
 // WRITE ERROR GRADIENT CONFIG
 
 // WRITE FUNCTION PROTOTYPE
+
+void project (
+
+// WRITE FUNCTION IO
+
+);
