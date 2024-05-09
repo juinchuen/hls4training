@@ -2,10 +2,10 @@
 #pragma once
 namespace nnet{
 
-    template <class data_T, typename CONFIG_T>
+    template <class data_T, class res_T, typename CONFIG_T>
 
         void relu_grad( data_T data_in  [CONFIG_T::n_neuron],
-                        data_T data_out [CONFIG_T::n_neuron]) {
+                        res_T data_out [CONFIG_T::n_neuron]) {
 
             for (int i = 0; i < CONFIG_T::n_neuron; i++){
             #pragma HLS UNROLL
