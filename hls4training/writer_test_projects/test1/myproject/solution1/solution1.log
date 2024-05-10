@@ -1,0 +1,243 @@
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.1 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [HLS 200-10] Setting target device to 'xczu9eg-ffvb1156-2-e'
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file 'myproject.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:03 ; elapsed = 00:00:07 . Memory (MB): peak = 1061.242 ; gain = 130.027 ; free physical = 8833 ; free virtual = 70961
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:03 ; elapsed = 00:00:07 . Memory (MB): peak = 1061.242 ; gain = 130.027 ; free physical = 8833 ; free virtual = 70961
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:03 ; elapsed = 00:00:07 . Memory (MB): peak = 1061.242 ; gain = 130.027 ; free physical = 8832 ; free virtual = 70959
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'nnet::relu<int, relu_config_0>' into 'myproject' (myproject.cpp:63) automatically.
+INFO: [XFORM 203-602] Inlining function 'nnet::relu<int, relu_config_1>' into 'myproject' (myproject.cpp:66) automatically.
+INFO: [XFORM 203-602] Inlining function 'nnet::ms_grad<int, ms_grad_config_0>' into 'myproject' (myproject.cpp:69) automatically.
+INFO: [XFORM 203-602] Inlining function 'nnet::relu_grad<int, relu_config_1>' into 'myproject' (myproject.cpp:72) automatically.
+INFO: [XFORM 203-602] Inlining function 'nnet::relu_grad<int, relu_config_0>' into 'myproject' (myproject.cpp:75) automatically.
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:03 ; elapsed = 00:00:08 . Memory (MB): peak = 1061.242 ; gain = 130.027 ; free physical = 8875 ; free virtual = 71003
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (/homes/jco1147/hls4training/hls4training/utils/dense_backprop.h:18) in function 'nnet::dense_backprop<int, dense_config_0>' completely with a factor of 5.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2' (/homes/jco1147/hls4training/hls4training/utils/dense_backprop.h:32) in function 'nnet::dense_backprop<int, dense_config_0>' completely with a factor of 5.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2.1' (/homes/jco1147/hls4training/hls4training/utils/dense_backprop.h:36) in function 'nnet::dense_backprop<int, dense_config_0>' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-3' (/homes/jco1147/hls4training/hls4training/utils/dense_backprop.h:50) in function 'nnet::dense_backprop<int, dense_config_0>' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4' (/homes/jco1147/hls4training/hls4training/utils/dense_backprop.h:58) in function 'nnet::dense_backprop<int, dense_config_0>' completely with a factor of 5.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4.1' (/homes/jco1147/hls4training/hls4training/utils/dense_backprop.h:62) in function 'nnet::dense_backprop<int, dense_config_0>' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (/homes/jco1147/hls4training/hls4training/utils/relu_grad.h:10) in function 'nnet::relu_grad<int, relu_config_0>' completely with a factor of 5.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (/homes/jco1147/hls4training/hls4training/utils/dense_backprop.h:18) in function 'nnet::dense_backprop<int, dense_config_1>' completely with a factor of 7.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2' (/homes/jco1147/hls4training/hls4training/utils/dense_backprop.h:32) in function 'nnet::dense_backprop<int, dense_config_1>' completely with a factor of 7.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2.1' (/homes/jco1147/hls4training/hls4training/utils/dense_backprop.h:36) in function 'nnet::dense_backprop<int, dense_config_1>' completely with a factor of 5.
+INFO: [HLS 200-489] Unrolling loop 'Loop-3' (/homes/jco1147/hls4training/hls4training/utils/dense_backprop.h:50) in function 'nnet::dense_backprop<int, dense_config_1>' completely with a factor of 5.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4' (/homes/jco1147/hls4training/hls4training/utils/dense_backprop.h:58) in function 'nnet::dense_backprop<int, dense_config_1>' completely with a factor of 7.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4.1' (/homes/jco1147/hls4training/hls4training/utils/dense_backprop.h:62) in function 'nnet::dense_backprop<int, dense_config_1>' completely with a factor of 5.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (/homes/jco1147/hls4training/hls4training/utils/relu_grad.h:10) in function 'nnet::relu_grad<int, relu_config_1>' completely with a factor of 7.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (/homes/jco1147/hls4training/hls4training/utils/ms_grad.h:12) in function 'nnet::ms_grad<int, ms_grad_config_0>' completely with a factor of 7.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (/homes/jco1147/hls4training/hls4training/utils/relu.h:10) in function 'nnet::relu<int, relu_config_1>' completely with a factor of 7.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (/homes/jco1147/hls4training/hls4training/utils/dense_infer.h:14) in function 'nnet::dense_infer<int, dense_config_1>' completely with a factor of 7.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2' (/homes/jco1147/hls4training/hls4training/utils/dense_infer.h:24) in function 'nnet::dense_infer<int, dense_config_1>' completely with a factor of 5.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2.1' (/homes/jco1147/hls4training/hls4training/utils/dense_infer.h:28) in function 'nnet::dense_infer<int, dense_config_1>' completely with a factor of 7.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (/homes/jco1147/hls4training/hls4training/utils/relu.h:10) in function 'nnet::relu<int, relu_config_0>' completely with a factor of 5.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (/homes/jco1147/hls4training/hls4training/utils/dense_infer.h:14) in function 'nnet::dense_infer<int, dense_config_0>' completely with a factor of 5.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2' (/homes/jco1147/hls4training/hls4training/utils/dense_infer.h:24) in function 'nnet::dense_infer<int, dense_config_0>' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2.1' (/homes/jco1147/hls4training/hls4training/utils/dense_infer.h:28) in function 'nnet::dense_infer<int, dense_config_0>' completely with a factor of 5.
+INFO: [XFORM 203-101] Partitioning array 'input' (myproject.cpp:6) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'layer0_pre_relu' (myproject.cpp:29) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'layer1_pre_relu' (myproject.cpp:34) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'truth' (myproject.cpp:22) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'layer0_post_relu' (myproject.cpp:30) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'layer1_post_relu' (myproject.cpp:14) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'layer0_relu_grad' (myproject.cpp:31) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'layer1_relu_grad' (myproject.cpp:35) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'layer0_w' (myproject.cpp:8) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'layer1_w' (myproject.cpp:11) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'layer0_b' (myproject.cpp:9) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'layer1_b' (myproject.cpp:12) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'layer0_w_grad' (myproject.cpp:16) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'layer1_w_grad' (myproject.cpp:19) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'layer0_b_grad' (myproject.cpp:17) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'layer1_b_grad' (myproject.cpp:20) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'input_act_grad' (myproject.cpp:27) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'layer0_act_grad' (myproject.cpp:32) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'layer1_act_grad' (myproject.cpp:36) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'layer0_w' (myproject.cpp:8) in dimension 2 completely.
+INFO: [XFORM 203-101] Partitioning array 'layer1_w' (myproject.cpp:11) in dimension 2 completely.
+INFO: [XFORM 203-101] Partitioning array 'layer0_w_grad' (myproject.cpp:16) in dimension 2 completely.
+INFO: [XFORM 203-101] Partitioning array 'layer1_w_grad' (myproject.cpp:19) in dimension 2 completely.
+INFO: [XFORM 203-602] Inlining function 'nnet::dense_infer<int, dense_config_0>' into 'myproject' (myproject.cpp:62) automatically.
+INFO: [XFORM 203-602] Inlining function 'nnet::relu<int, relu_config_0>' into 'myproject' (myproject.cpp:63) automatically.
+INFO: [XFORM 203-602] Inlining function 'nnet::dense_infer<int, dense_config_1>' into 'myproject' (myproject.cpp:65) automatically.
+INFO: [XFORM 203-602] Inlining function 'nnet::relu<int, relu_config_1>' into 'myproject' (myproject.cpp:66) automatically.
+INFO: [XFORM 203-602] Inlining function 'nnet::ms_grad<int, ms_grad_config_0>' into 'myproject' (myproject.cpp:69) automatically.
+INFO: [XFORM 203-602] Inlining function 'nnet::relu_grad<int, relu_config_1>' into 'myproject' (myproject.cpp:72) automatically.
+INFO: [XFORM 203-602] Inlining function 'nnet::relu_grad<int, relu_config_0>' into 'myproject' (myproject.cpp:75) automatically.
+INFO: [XFORM 203-602] Inlining function 'nnet::dense_backprop<int, dense_config_0>' into 'myproject' (myproject.cpp:76) automatically.
+INFO: [XFORM 203-11] Balancing expressions in function 'nnet::dense_backprop<int, dense_config_1>' (/homes/jco1147/hls4training/hls4training/utils/dense_backprop.h:7)...30 expression(s) balanced.
+INFO: [XFORM 203-11] Balancing expressions in function 'myproject' (myproject.cpp:6)...78 expression(s) balanced.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:03 ; elapsed = 00:00:11 . Memory (MB): peak = 1061.242 ; gain = 130.027 ; free physical = 8855 ; free virtual = 70983
+WARNING: [XFORM 203-631] Renaming function 'nnet::dense_backprop<int, dense_config_1>' to 'dense_backprop' (/homes/jco1147/hls4training/hls4training/utils/dense_backprop.h:23:9)
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:04 ; elapsed = 00:00:11 . Memory (MB): peak = 1061.242 ; gain = 130.027 ; free physical = 8849 ; free virtual = 70978
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'myproject' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'dense_backprop' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 11.89 seconds; current allocated memory: 120.643 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.47 seconds; current allocated memory: 121.451 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'myproject' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.69 seconds; current allocated memory: 123.034 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.53 seconds; current allocated memory: 124.829 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'dense_backprop' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'dense_backprop'.
+INFO: [HLS 200-111]  Elapsed time: 0.84 seconds; current allocated memory: 131.304 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'myproject' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/input_0' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/input_1' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/input_2' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer0_w_0_0' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer0_w_0_1' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer0_w_0_2' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer0_w_1_0' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer0_w_1_1' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer0_w_1_2' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer0_w_2_0' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer0_w_2_1' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer0_w_2_2' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer0_w_3_0' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer0_w_3_1' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer0_w_3_2' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer0_w_4_0' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer0_w_4_1' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer0_w_4_2' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer0_b_0' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer0_b_1' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer0_b_2' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer0_b_3' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer0_b_4' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_0_0' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_0_1' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_0_2' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_0_3' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_0_4' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_1_0' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_1_1' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_1_2' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_1_3' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_1_4' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_2_0' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_2_1' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_2_2' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_2_3' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_2_4' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_3_0' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_3_1' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_3_2' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_3_3' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_3_4' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_4_0' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_4_1' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_4_2' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_4_3' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_4_4' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_5_0' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_5_1' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_5_2' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_5_3' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_5_4' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_6_0' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_6_1' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_6_2' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_6_3' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_6_4' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_b_0' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_b_1' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_b_2' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_b_3' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_b_4' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_b_5' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_b_6' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_post_relu_0' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_post_relu_1' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_post_relu_2' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_post_relu_3' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_post_relu_4' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_post_relu_5' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_post_relu_6' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer0_w_grad_0_0' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer0_w_grad_0_1' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer0_w_grad_0_2' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer0_w_grad_1_0' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer0_w_grad_1_1' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer0_w_grad_1_2' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer0_w_grad_2_0' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer0_w_grad_2_1' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer0_w_grad_2_2' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer0_w_grad_3_0' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer0_w_grad_3_1' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer0_w_grad_3_2' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer0_w_grad_4_0' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer0_w_grad_4_1' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer0_w_grad_4_2' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer0_b_grad_0' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer0_b_grad_1' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer0_b_grad_2' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer0_b_grad_3' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer0_b_grad_4' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_grad_0_0' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_grad_0_1' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_grad_0_2' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_grad_0_3' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_grad_0_4' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_grad_1_0' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_grad_1_1' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_grad_1_2' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_grad_1_3' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_grad_1_4' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_grad_2_0' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_grad_2_1' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_grad_2_2' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_grad_2_3' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_grad_2_4' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_grad_3_0' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_grad_3_1' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_grad_3_2' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_grad_3_3' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_grad_3_4' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_grad_4_0' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_grad_4_1' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_grad_4_2' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_grad_4_3' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_grad_4_4' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_grad_5_0' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_grad_5_1' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_grad_5_2' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_grad_5_3' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_grad_5_4' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_grad_6_0' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_grad_6_1' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_grad_6_2' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_grad_6_3' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer1_w_grad_6_4' to 'ap_vld'.
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.1 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================

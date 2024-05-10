@@ -1,0 +1,10 @@
+INFO-FLOW: Workspace /homes/jco1147/hls4training/hls4training/writer_test_projects/test1/myproject/solution1 opened at Sat May 04 21:31:05 CDT 2024
+Command     open_solution done; 1.34 sec.
+Execute     set_part ballsack_sweat -tool vivado 
+Execute       ap_part_info -name ballsack_sweat -data single -quiet 
+Command       ap_part_info done; 0.25 sec.
+Execute       ap_family_info 
+ERROR: [HLS 200-70] Part 'ballsack_sweat' is not installed.
+Command     set_part done; error code: 2; 0.28 sec.
+Command   ap_source done; error code: 1; 2.44 sec.
+Execute   cleanup_all 

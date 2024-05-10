@@ -55,9 +55,9 @@ class vivado_writer:
                           self.bias_grad_names,
                           self.act_grad_names]
 
-    def write_project_cpp(self, layer_names, layer_sizes):
+    def write_project_cpp(self):
 
-        if (len(layer_names) != len(layer_sizes) - 1):
+        if (len(self.layer_names) != len(self.layer_sizes) - 1):
 
             # check whether layer_names and layer_sizes argument sizes are correct
 
@@ -83,29 +83,29 @@ class vivado_writer:
 
                 # write input variable
 
-                newline += indent + 'data_T input[' + str(layer_sizes[0]) + '],\n\n'
+                newline += indent + 'data_T input[' + str(self.layer_sizes[0]) + '],\n\n'
 
                 # write weight and bias input variables
 
-                for i in range(len(layer_names)):
+                for i in range(len(self.layer_names)):
 
-                    newline += indent + 'data_T ' + layer_names[i] + '_w[' +  str(layer_sizes[i+1]) + '][' + str(layer_sizes[i]) + '],\n'
-                    newline += indent + 'data_T ' + layer_names[i] + '_b[' +  str(layer_sizes[i+1]) + '],\n\n'
+                    newline += indent + 'data_T ' + self.layer_names[i] + '_w[' +  str(self.layer_sizes[i+1]) + '][' + str(self.layer_sizes[i]) + '],\n'
+                    newline += indent + 'data_T ' + self.layer_names[i] + '_b[' +  str(self.layer_sizes[i+1]) + '],\n\n'
 
                 # write inference output variables
 
-                newline += indent + 'data_T ' + layer_names[-1] + '_post_relu[' + str(layer_sizes[-1]) + '],\n\n'
+                newline += indent + 'data_T ' + self.layer_names[-1] + '_post_relu[' + str(self.layer_sizes[-1]) + '],\n\n'
 
                 # write gradient output variables
 
-                for i in range(len(layer_names)):
+                for i in range(len(self.layer_names)):
 
-                    newline += indent + 'data_T ' + layer_names[i] + '_w_grad[' +  str(layer_sizes[i+1]) + '][' + str(layer_sizes[i]) + '],\n'
-                    newline += indent + 'data_T ' + layer_names[i] + '_b_grad[' +  str(layer_sizes[i+1]) + '],\n\n'
+                    newline += indent + 'data_T ' + self.layer_names[i] + '_w_grad[' +  str(self.layer_sizes[i+1]) + '][' + str(self.layer_sizes[i]) + '],\n'
+                    newline += indent + 'data_T ' + self.layer_names[i] + '_b_grad[' +  str(self.layer_sizes[i+1]) + '],\n\n'
 
                 # write ground truth input variable
 
-                newline += indent + 'data_T truth[' + str(layer_sizes[-1]) + ']\n'
+                newline += indent + 'data_T truth[' + str(self.layer_sizes[-1]) + ']\n'
 
             elif '// WRITE INTERNAL VARIABLES' in line:
 
@@ -115,19 +115,19 @@ class vivado_writer:
 
                 # write inference internal variables
 
-                newline += indent + 'data_T input_act_grad[' + str(layer_sizes[0]) + '];\n\n'
+                newline += indent + 'data_T input_act_grad[' + str(self.layer_sizes[0]) + '];\n\n'
 
-                for i in range(len(layer_names)-1):
+                for i in range(len(self.layer_names)-1):
 
-                    newline += indent + 'data_T ' + layer_names[i] + '_pre_relu[' + str(layer_sizes[i+1]) + '];\n'
-                    newline += indent + 'data_T ' + layer_names[i] + '_post_relu[' + str(layer_sizes[i+1]) + '];\n'
-                    newline += indent + 'data_T ' + layer_names[i] + '_relu_grad[' + str(layer_sizes[i+1]) + '];\n'
-                    newline += indent + 'data_T ' + layer_names[i] + '_act_grad[' + str(layer_sizes[i+1]) + '];\n\n'
+                    newline += indent + 'data_T ' + self.layer_names[i] + '_pre_relu[' + str(self.layer_sizes[i+1]) + '];\n'
+                    newline += indent + 'data_T ' + self.layer_names[i] + '_post_relu[' + str(self.layer_sizes[i+1]) + '];\n'
+                    newline += indent + 'data_T ' + self.layer_names[i] + '_relu_grad[' + str(self.layer_sizes[i+1]) + '];\n'
+                    newline += indent + 'data_T ' + self.layer_names[i] + '_act_grad[' + str(self.layer_sizes[i+1]) + '];\n\n'
                     
 
-                newline += indent + 'data_T ' + layer_names[-1] + '_pre_relu[' + str(layer_sizes[-1]) + '];\n'
-                newline += indent + 'data_T ' + layer_names[-1] + '_relu_grad[' + str(layer_sizes[-1]) + '];\n' 
-                newline += indent + 'data_T ' + layer_names[-1] + '_act_grad[' + str(layer_sizes[-1]) + '];\n'
+                newline += indent + 'data_T ' + self.layer_names[-1] + '_pre_relu[' + str(self.layer_sizes[-1]) + '];\n'
+                newline += indent + 'data_T ' + self.layer_names[-1] + '_relu_grad[' + str(self.layer_sizes[-1]) + '];\n' 
+                newline += indent + 'data_T ' + self.layer_names[-1] + '_act_grad[' + str(self.layer_sizes[-1]) + '];\n'
 
             elif '// WRITE ARRAY PARTITION DIRECTIVES' in line:
 
@@ -140,8 +140,6 @@ class vivado_writer:
                 def generate_pragma(var_name):
 
                     return '#pragma HLS ARRAY_PARTITION variable=' + var_name + ' complete dim=0\n'
-                
-                self.generate_variable_names()
 
                 for g in self.all_names:
 
@@ -160,27 +158,27 @@ class vivado_writer:
 
                 newline += indent
                 newline += 'nnet::dense_infer <data_T, dense_config_0> (input, '
-                newline += layer_names[0] + '_pre_relu, ' + layer_names[0] + '_w, ' + layer_names[0] + '_b);\n'
+                newline += self.layer_names[0] + '_pre_relu, ' + self.layer_names[0] + '_w, ' + self.layer_names[0] + '_b);\n'
 
                 newline += indent
                 newline += 'nnet::relu <data_T, relu_config_0> ('
-                newline += layer_names[0] + '_pre_relu, ' + layer_names[0] + '_post_relu);'
+                newline += self.layer_names[0] + '_pre_relu, ' + self.layer_names[0] + '_post_relu);'
 
-                if len(layer_names) > 1:
+                if len(self.layer_names) > 1:
 
                     newline += '\n\n'
 
-                for i in range(len(layer_names)-1):
+                for i in range(len(self.layer_names)-1):
 
                     newline += indent
-                    newline += 'nnet::dense_infer <data_T, dense_config_' + str(i+1) + '> (' + layer_names[i] + '_post_relu, '
-                    newline += layer_names[i+1] + '_pre_relu, ' + layer_names[i+1] + '_w, ' + layer_names[i+1] + '_b);\n'
+                    newline += 'nnet::dense_infer <data_T, dense_config_' + str(i+1) + '> (' + self.layer_names[i] + '_post_relu, '
+                    newline += self.layer_names[i+1] + '_pre_relu, ' + self.layer_names[i+1] + '_w, ' + self.layer_names[i+1] + '_b);\n'
 
                     newline += indent
                     newline += 'nnet::relu <data_T, relu_config_' + str(i+1) + '> ('
-                    newline += layer_names[i+1] + '_pre_relu, ' + layer_names[i+1] + '_post_relu);'
+                    newline += self.layer_names[i+1] + '_pre_relu, ' + self.layer_names[i+1] + '_post_relu);'
 
-                    if i != len(layer_names)-2:
+                    if i != len(self.layer_names)-2:
                         newline += '\n\n'                
 
             elif '// WRITE ERROR GRADIENT LAYER' in line:
@@ -189,38 +187,38 @@ class vivado_writer:
                 newline += line
                 newline += indent
                 newline += 'nnet::ms_grad <data_T, ms_grad_config_0> ('
-                newline += layer_names[-1] + '_post_relu, truth, ' + layer_names[-1] + '_act_grad);'
+                newline += self.layer_names[-1] + '_post_relu, truth, ' + self.layer_names[-1] + '_act_grad);'
 
             elif '// WRITE BACKPROPAGATION LAYERS' in line:
 
                 newline += indent
                 newline += line
 
-                for i in range(len(layer_names)-1):
+                for i in range(len(self.layer_names)-1):
 
-                    j = len(layer_names) - i - 1
+                    j = len(self.layer_names) - i - 1
 
                     newline += indent
 
                     newline += 'nnet::relu_grad <data_T, relu_config_' + str(j) + '> ('
-                    newline += layer_names[j] + '_pre_relu, ' + layer_names[j] + '_relu_grad);\n'
+                    newline += self.layer_names[j] + '_pre_relu, ' + self.layer_names[j] + '_relu_grad);\n'
 
                     newline += indent
                     newline += 'nnet::dense_backprop <data_T, dense_config_' + str(j) + '> ('
-                    newline += layer_names[j] + '_relu_grad, ' + layer_names[j-1] + '_post_relu, '
-                    newline += layer_names[j] + '_act_grad, ' + layer_names[j] + '_w, '
-                    newline += layer_names[j] + '_w_grad, ' + layer_names[j] + '_b_grad, '
-                    newline += layer_names[j-1] + '_act_grad);\n\n'
+                    newline += self.layer_names[j] + '_relu_grad, ' + self.layer_names[j-1] + '_post_relu, '
+                    newline += self.layer_names[j] + '_act_grad, ' + self.layer_names[j] + '_w, '
+                    newline += self.layer_names[j] + '_w_grad, ' + self.layer_names[j] + '_b_grad, '
+                    newline += self.layer_names[j-1] + '_act_grad);\n\n'
 
                 newline += indent
                 newline += 'nnet::relu_grad <data_T, relu_config_0> ('
-                newline += layer_names[0] + '_pre_relu, ' + layer_names[0] + '_relu_grad);\n'
+                newline += self.layer_names[0] + '_pre_relu, ' + self.layer_names[0] + '_relu_grad);\n'
 
                 newline += indent
                 newline += 'nnet::dense_backprop <data_T, dense_config_0> ('
-                newline += layer_names[0] + '_relu_grad, input, '
-                newline += layer_names[0] + '_act_grad, ' + layer_names[0] + '_w, '
-                newline += layer_names[0] + '_w_grad, ' + layer_names[0] + '_b_grad, '
+                newline += self.layer_names[0] + '_relu_grad, input, '
+                newline += self.layer_names[0] + '_act_grad, ' + self.layer_names[0] + '_w, '
+                newline += self.layer_names[0] + '_w_grad, ' + self.layer_names[0] + '_b_grad, '
                 newline += 'input_act_grad);\n'
 
                 # nnet::dense_backprop <data_T, dense_config_0>
@@ -235,9 +233,9 @@ class vivado_writer:
         f_in.close()
         f_out.close()
 
-    def write_header (self, layer_names, layer_sizes, headers):
+    def write_header (self, headers):
 
-        if (len(layer_names) != len(layer_sizes) - 1):
+        if (len(self.layer_names) != len(self.layer_sizes) - 1):
 
             # check whether layer_names and layer_sizes argument sizes are correct
 
@@ -274,14 +272,14 @@ class vivado_writer:
 
                 newline += line
 
-                for i in range(len(layer_names)):
+                for i in range(len(self.layer_names)):
 
                     newline += 'struct dense_config_' + str(i) + ' : nnet::dense_config {\n'
-                    newline += indent + 'static const unsigned n_in = ' + str(layer_sizes[i]) + ';\n'
-                    newline += indent + 'static const unsigned n_out = ' + str(layer_sizes[i+1]) + ';\n'
+                    newline += indent + 'static const unsigned n_in = ' + str(self.layer_sizes[i]) + ';\n'
+                    newline += indent + 'static const unsigned n_out = ' + str(self.layer_sizes[i+1]) + ';\n'
                     newline += '};\n'
 
-                    if i != len(layer_names) - 1:
+                    if i != len(self.layer_names) - 1:
 
                         newline += '\n'
 
@@ -289,13 +287,13 @@ class vivado_writer:
 
                 newline += line
 
-                for i in range(len(layer_names)):
+                for i in range(len(self.layer_names)):
 
                     newline += 'struct relu_config_' + str(i) + ' : nnet::relu_config {\n'
-                    newline += indent + 'static const unsigned n_neuron = ' + str(layer_sizes[i+1]) + ';\n'
+                    newline += indent + 'static const unsigned n_neuron = ' + str(self.layer_sizes[i+1]) + ';\n'
                     newline += '};\n'
 
-                    if i != len(layer_names) - 1:
+                    if i != len(self.layer_names) - 1:
 
                         newline += '\n'
 
@@ -304,7 +302,7 @@ class vivado_writer:
                 newline += line
 
                 newline += 'struct ms_grad_config_0 : nnet::ms_grad_config {\n'
-                newline += indent + 'static const unsigned n_neuron = ' + str(layer_sizes[-1]) + ';\n'
+                newline += indent + 'static const unsigned n_neuron = ' + str(self.layer_sizes[-1]) + ';\n'
                 newline += '};\n'
 
             elif "// WRITE FUNCTION PROTOTYPE" in line:
@@ -319,29 +317,29 @@ class vivado_writer:
 
                 # write input variable
 
-                newline += indent + 'data_T input[' + str(layer_sizes[0]) + '],\n\n'
+                newline += indent + 'data_T input[' + str(self.layer_sizes[0]) + '],\n\n'
 
                 # write weight and bias input variables
 
-                for i in range(len(layer_names)):
+                for i in range(len(self.layer_names)):
 
-                    newline += indent + 'data_T ' + layer_names[i] + '_w[' +  str(layer_sizes[i+1]) + '][' + str(layer_sizes[i]) + '],\n'
-                    newline += indent + 'data_T ' + layer_names[i] + '_b[' +  str(layer_sizes[i+1]) + '],\n\n'
+                    newline += indent + 'data_T ' + self.layer_names[i] + '_w[' +  str(self.layer_sizes[i+1]) + '][' + str(self.layer_sizes[i]) + '],\n'
+                    newline += indent + 'data_T ' + self.layer_names[i] + '_b[' +  str(self.layer_sizes[i+1]) + '],\n\n'
 
                 # write inference output variables
 
-                newline += indent + 'data_T ' + layer_names[-1] + '_post_relu[' + str(layer_sizes[-1]) + '],\n\n'
+                newline += indent + 'data_T ' + self.layer_names[-1] + '_post_relu[' + str(self.layer_sizes[-1]) + '],\n\n'
 
                 # write gradient output variables
 
-                for i in range(len(layer_names)):
+                for i in range(len(self.layer_names)):
 
-                    newline += indent + 'data_T ' + layer_names[i] + '_w_grad[' +  str(layer_sizes[i+1]) + '][' + str(layer_sizes[i]) + '],\n'
-                    newline += indent + 'data_T ' + layer_names[i] + '_b_grad[' +  str(layer_sizes[i+1]) + '],\n\n'
+                    newline += indent + 'data_T ' + self.layer_names[i] + '_w_grad[' +  str(self.layer_sizes[i+1]) + '][' + str(self.layer_sizes[i]) + '],\n'
+                    newline += indent + 'data_T ' + self.layer_names[i] + '_b_grad[' +  str(self.layer_sizes[i+1]) + '],\n\n'
 
                 # write ground truth input variable
 
-                newline += indent + 'data_T truth[' + str(layer_sizes[-1]) + ']\n'
+                newline += indent + 'data_T truth[' + str(self.layer_sizes[-1]) + ']\n'
 
             else:
 
@@ -351,6 +349,45 @@ class vivado_writer:
 
         f_in.close()
         f_out.close()
+
+    def write_tcl (self, headers):
+
+        if (len(self.layer_names) != len(self.layer_sizes) - 1):
+
+            # check whether layer_names and layer_sizes argument sizes are correct
+
+            raise ValueError('Incorrect length of arguments. layer_names refers to computation layers. layer_sizes refers to variables in between computation layers')
+
+        f_in = open(os.path.join(self.template_dir, 'project.tcl'), 'r')
+
+        f_out = open(os.path.join(self.project_dir, 'myproject.tcl'), 'w')
+
+        for line in f_in.readlines():
+
+            # if 'project' in line:
+
+            #     line = line.replace('project', 'myproject')
+
+            newline = ''
+
+            if "# ADD UTIL FILES" in line:
+
+                newline += line
+
+                for h in headers:
+
+                    newline += 'add_files ' + self.util_dir + h + '\n'
+
+            else:
+
+                newline += line
+
+            f_out.write(newline)
+
+        f_in.close()
+        f_out.close()
+
+
 
 
 

@@ -1,0 +1,31 @@
+
+****** Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.1 (64-bit)
+  **** SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
+  **** IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source /nvme-scratch/ruishi/softwares/xilinx/Vivado/2019.1/scripts/vivado_hls/hls.tcl -notrace
+INFO: [HLS 200-10] Running '/nvme-scratch/ruishi/softwares/xilinx/Vivado/2019.1/bin/unwrapped/lnx64.o/vivado_hls'
+INFO: [HLS 200-10] For user 'jco1147' on host 'lanai.ece.northwestern.edu' (Linux_x86_64 version 4.18.0-513.18.1.el8_9.x86_64) on Sat May 04 21:31:03 CDT 2024
+INFO: [HLS 200-10] On os "Red Hat Enterprise Linux release 8.9 (Ootpa)"
+INFO: [HLS 200-10] In directory '/homes/jco1147/hls4training/hls4training/writer_test_projects/test1'
+Sourcing Tcl script 'myproject.tcl'
+INFO: [HLS 200-10] Opening and resetting project '/homes/jco1147/hls4training/hls4training/writer_test_projects/test1/myproject'.
+INFO: [HLS 200-10] Adding design file 'myproject.cpp' to the project
+INFO: [HLS 200-10] Adding design file 'myproject.h' to the project
+INFO: [HLS 200-10] Adding design file '/homes/jco1147/hls4training/hls4training/utils/dense_infer.h' to the project
+INFO: [HLS 200-10] Adding design file '/homes/jco1147/hls4training/hls4training/utils/relu.h' to the project
+INFO: [HLS 200-10] Adding design file '/homes/jco1147/hls4training/hls4training/utils/relu_grad.h' to the project
+INFO: [HLS 200-10] Adding design file '/homes/jco1147/hls4training/hls4training/utils/ms_grad.h' to the project
+INFO: [HLS 200-10] Adding design file '/homes/jco1147/hls4training/hls4training/utils/dense_backprop.h' to the project
+INFO: [HLS 200-10] Opening and resetting solution '/homes/jco1147/hls4training/hls4training/writer_test_projects/test1/myproject/solution1'.
+INFO: [HLS 200-10] Cleaning up the solution database.
+ERROR: [HLS 200-70] Part 'ballsack_sweat' is not installed.
+command 'ap_source' returned error code
+    while executing
+"source myproject.tcl"
+    ("uplevel" body line 1)
+    invoked from within
+"uplevel \#0 [list source $arg] "
+
+INFO: [Common 17-206] Exiting vivado_hls at Sat May  4 21:31:05 2024...
