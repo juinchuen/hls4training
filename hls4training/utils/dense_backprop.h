@@ -2,18 +2,16 @@
 #pragma once
 namespace nnet{
 
-    template <class data_T, typename CONFIG_T>
-
-        void dense_backprop(    const data_T pre_relu_grad    [CONFIG_T::n_out],
-                                const data_T prev_act_in      [CONFIG_T::n_in],
-                                const data_T act_grad_in      [CONFIG_T::n_out],
-                                const data_T weight_in        [CONFIG_T::n_out][CONFIG_T::n_in],
-
-                                data_T weight_grad_out  [CONFIG_T::n_out][CONFIG_T::n_in],
-                                data_T bias_grad_out    [CONFIG_T::n_out],
-                                data_T act_grad_out     [CONFIG_T::n_in]){
-
-            // ----- bias gradient -----//
+        template <class pre_relu_T, class prev_act_in_T, class act_out_T, typename CONFIG_T>
+            void dense_backprop(
+                pre_relu_T pre_relu_grad[CONFIG_T::n_out],
+                prev_act_in_T prev_act_in[CONFIG_T::n_in],
+                typename CONFIG_T::act_grad_t act_grad_in[CONFIG_T::n_out],
+                typename CONFIG_T::weight_t weight_in[CONFIG_T::n_out][CONFIG_T::n_in],
+                typename CONFIG_T::weight_grad_t weight_grad_out[CONFIG_T::n_out][CONFIG_T::n_in],
+                typename CONFIG_T::bias_grad_t bias_grad_out[CONFIG_T::n_out],
+                act_out_T act_grad_out[CONFIG_T::n_in]) {
+                        // ----- bias gradient -----//
 
             for (int i = 0; i < CONFIG_T::n_out; i++){
             #pragma HLS UNROLL
