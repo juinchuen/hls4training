@@ -1,4 +1,5 @@
 # import numpy as np
+import autograd.numpy as np
 
 # we use a 1 hidden layer, 16 neuron nn
 # to map 3 x,y,z values to 5 angle values
@@ -209,7 +210,9 @@ class mlp4autograd:
                 self._weight_dif.insert(0,np.dot(self._bias_dif[0], self._activation[-(i+2)].transpose()))
                 self._activation_dif.insert(0,np.dot(self._weight[-(i+1)].transpose(), self._bias_dif[0]))
 
-        return self._weight_dif, self._bias_dif
+        self.params_grad = [self._weight_dif, self._bias_dif]
+
+        # return self._weight_dif, self._bias_dif
 
     def print_grad(self): #NAbQ
 
