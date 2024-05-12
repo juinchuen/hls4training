@@ -1,0 +1,25 @@
+
+****** Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.1 (64-bit)
+  **** SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
+  **** IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source /nvme-scratch/ruishi/softwares/xilinx/Vivado/2019.1/scripts/vivado_hls/hls.tcl -notrace
+ERROR: [HLS 200-101] Unknown option '--versino'.
+FORMAT
+  vivado_hls [OPTIONS] [tclscripts]
+     tclscripts <string>
+    -f
+    -i
+    -l <string> (default: vivado_hls.log)
+    -n
+    -nosplash
+    -p <string>
+    -r
+    -root_dir
+    -s
+    -system
+    -version
+
+ERROR: [HLS 200-70] There is an error calling 'vivado_hls'; try '-help'.
+INFO: [Common 17-206] Exiting vivado_hls at Sun May 12 03:34:08 2024...
