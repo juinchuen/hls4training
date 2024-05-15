@@ -7,33 +7,33 @@
 #include "/homes/jco1147/hls4training/hls4training/utils/dense_backprop.h"
 
 // WRITE DATA TYPE DEFINITIONS
-typedef ap_fixed<12, 3> input_t;
-typedef ap_fixed<12, 3> truth_t;
-typedef ap_fixed<12, 3> input_act_grad_t;
-typedef ap_fixed<12, 3> layer0_pre_relu_t;
-typedef ap_fixed<12, 3> layer0_post_relu_t;
-typedef ap_fixed<12, 3> layer0_weight_t;
-typedef ap_fixed<12, 3> layer0_bias_t;
-typedef ap_fixed<12, 3> layer0_relu_grad_t;
-typedef ap_fixed<12, 3> layer0_act_grad_t;
-typedef ap_fixed<12, 3> layer0_weight_grad_t;
-typedef ap_fixed<12, 3> layer0_bias_grad_t;
-typedef ap_ufixed<11, 3> layer1_pre_relu_t;
-typedef ap_ufixed<11, 3> layer1_post_relu_t;
-typedef ap_ufixed<11, 3> layer1_weight_t;
-typedef ap_ufixed<11, 3> layer1_bias_t;
-typedef ap_ufixed<11, 3> layer1_relu_grad_t;
-typedef ap_ufixed<11, 3> layer1_act_grad_t;
-typedef ap_ufixed<11, 3> layer1_weight_grad_t;
-typedef ap_ufixed<11, 3> layer1_bias_grad_t;
-typedef ap_fixed<12, 3> layer2_pre_relu_t;
-typedef ap_fixed<12, 3> layer2_post_relu_t;
-typedef ap_fixed<12, 3> layer2_weight_t;
-typedef ap_fixed<12, 3> layer2_bias_t;
-typedef ap_fixed<12, 3> layer2_relu_grad_t;
-typedef ap_fixed<12, 3> layer2_act_grad_t;
-typedef ap_fixed<12, 3> layer2_weight_grad_t;
-typedef ap_fixed<12, 3> layer2_bias_grad_t;
+typedef ap_fixed<18, 9, AP_RND_CONV, AP_SAT> input_t;
+typedef ap_fixed<18, 9, AP_RND_CONV, AP_SAT> truth_t;
+typedef ap_fixed<18, 9, AP_RND_CONV, AP_SAT> input_act_grad_t;
+typedef ap_fixed<18, 9, AP_RND_CONV, AP_SAT> layer0_pre_relu_t;
+typedef ap_fixed<18, 9, AP_RND_CONV, AP_SAT> layer0_post_relu_t;
+typedef ap_fixed<18, 9, AP_RND_CONV, AP_SAT> layer0_weight_t;
+typedef ap_fixed<18, 9, AP_RND_CONV, AP_SAT> layer0_bias_t;
+typedef ap_fixed<18, 9, AP_RND_CONV, AP_SAT> layer0_relu_grad_t;
+typedef ap_fixed<18, 9, AP_RND_CONV, AP_SAT> layer0_act_grad_t;
+typedef ap_fixed<18, 9, AP_RND_CONV, AP_SAT> layer0_weight_grad_t;
+typedef ap_fixed<18, 9, AP_RND_CONV, AP_SAT> layer0_bias_grad_t;
+typedef ap_fixed<18, 9, AP_RND_CONV, AP_SAT> layer1_pre_relu_t;
+typedef ap_fixed<18, 9, AP_RND_CONV, AP_SAT> layer1_post_relu_t;
+typedef ap_fixed<18, 9, AP_RND_CONV, AP_SAT> layer1_weight_t;
+typedef ap_fixed<18, 9, AP_RND_CONV, AP_SAT> layer1_bias_t;
+typedef ap_fixed<18, 9, AP_RND_CONV, AP_SAT> layer1_relu_grad_t;
+typedef ap_fixed<18, 9, AP_RND_CONV, AP_SAT> layer1_act_grad_t;
+typedef ap_fixed<18, 9, AP_RND_CONV, AP_SAT> layer1_weight_grad_t;
+typedef ap_fixed<18, 9, AP_RND_CONV, AP_SAT> layer1_bias_grad_t;
+typedef ap_fixed<18, 9, AP_RND_CONV, AP_SAT> layer2_pre_relu_t;
+typedef ap_fixed<18, 9, AP_RND_CONV, AP_SAT> layer2_post_relu_t;
+typedef ap_fixed<18, 9, AP_RND_CONV, AP_SAT> layer2_weight_t;
+typedef ap_fixed<18, 9, AP_RND_CONV, AP_SAT> layer2_bias_t;
+typedef ap_fixed<18, 9, AP_RND_CONV, AP_SAT> layer2_relu_grad_t;
+typedef ap_fixed<18, 9, AP_RND_CONV, AP_SAT> layer2_act_grad_t;
+typedef ap_fixed<18, 9, AP_RND_CONV, AP_SAT> layer2_weight_grad_t;
+typedef ap_fixed<18, 9, AP_RND_CONV, AP_SAT> layer2_bias_grad_t;
 
 // WRITE DENSE CONFIG
 struct dense_config_0 : nnet::dense_config {
