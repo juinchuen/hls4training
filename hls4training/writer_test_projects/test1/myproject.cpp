@@ -28,6 +28,7 @@ void myproject (
     truth_t truth[13]
 
 ){
+#pragma HLS PIPELINE
 
     // WRITE INTERNAL VARIABLES
     input_act_grad_t input_act_grad[10];

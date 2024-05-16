@@ -5,6 +5,7 @@ void project (
 // WRITE IO LIST
 
 ){
+#pragma HLS PIPELINE
 
 // WRITE INTERNAL VARIABLES
 

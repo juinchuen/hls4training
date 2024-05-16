@@ -11,6 +11,7 @@ namespace nnet{
                 typename CONFIG_T::weight_grad_t weight_grad_out[CONFIG_T::n_out][CONFIG_T::n_in],
                 typename CONFIG_T::bias_grad_t bias_grad_out[CONFIG_T::n_out],
                 typename CONFIG_T::act_grad_out_t act_grad_out[CONFIG_T::n_in]) {
+            #pragma HLS PIPELINE
                         // ----- bias gradient -----//
 
             for (int i = 0; i < CONFIG_T::n_out; i++){
